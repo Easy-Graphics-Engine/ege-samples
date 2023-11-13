@@ -18,7 +18,7 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 
-[*.{cpp,c}]
+[*.{cpp,c,lua}]
 indent_style = space
 indent_size = 4
 
