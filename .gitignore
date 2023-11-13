@@ -39,3 +39,6 @@
 
 # Clangd cache
 .cache/
+
+# Build folders
+build/
