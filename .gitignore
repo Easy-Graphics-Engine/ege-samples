@@ -33,3 +33,7 @@
 
 # Visual Studio Code configuration files
 .vscode/
+
+# Xmake configuration files
+.xmake/
+
