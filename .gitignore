@@ -39,6 +39,7 @@
 
 # Clangd cache
 .cache/
+.vscode/.cache/clangd
 
 # Build folders
 build/
