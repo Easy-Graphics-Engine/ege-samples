@@ -1,3 +1,6 @@
+# 忽略用于用户存放测试文件的文件夹
+test/
+
 # Prerequisites
 *.d
 
