@@ -1,0 +1,125 @@
+# 检测到文本文件时自动处理行尾序列
+# 检测到二进制文件时不做处理
+# 已入库的文件为 CRLF 则不转换
+*               text=auto
+
+# 上面的设置将会应用到下面没有出现过的文件类型
+
+# 下面这些文件为文本文件，应进行规范化(CRLF --> LF)
+*.gitattributes text
+.gitignore      text
+
+
+# 文档
+*.md            text
+*.txt           text
+
+# 使用外部工具对比差异 Pandoc (https://github.com/jgm/pandoc)
+# 配置参考 https://github.com/vigente/gerardus/wiki/Integrate-git-diffs-with-word-docx-files
+*.doc           binary  diff=pandoc
+*.docx          binary  diff=pandoc
+*.epub          binary  diff=pandoc
+*.tex           binary  diff=pandoc
+
+
+# C++ 文件
+# -- Source
+*.cpp           text
+*.c             text
+*.h             text
+*.hpp           text
+
+# -- Compiled Object files
+*.slo           binary
+*.lo            binary
+*.o             binary
+*.obj           binary
+
+# -- Precompiled Headers
+*.gch           binary
+*.pch           binary
+
+# -- Compiled Dynamic libraries
+*.so            binary
+*.dylib         binary
+*.dll           binary
+
+# -- Compiled Static libraries
+*.lai           binary
+*.la            binary
+*.a             binary
+*.lib           binary
+
+# -- Executables
+*.exe           binary
+*.out           binary
+*.app           binary
+
+
+# 配置文件
+*.json          text
+*.toml          text
+*.xml           text
+*.yaml          text
+*.yml           text
+
+
+# Web
+*.css           text
+*.htm           text
+*.html          text
+*.js            text
+
+# 图形图像文件
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.bmp           binary
+*.tif           binary
+*.tiff          binary
+*.ico           binary
+*.emf           binary
+*.wmf           binary
+
+*.svg           text
+
+
+# 音视频文件
+*.wav           binary
+*.mp3           binary
+*.mp4           binary
+
+
+# 其它二进制文件
+*.7z            binary
+*.gz            binary
+*.tar           binary
+*.tgz           binary
+*.zip           binary
+
+# 脚本文件
+*.bash          text    eol=lf
+*.fish          text    eol=lf
+*.ksh           text    eol=lf
+*.sh            text    eol=lf
+*.zsh           text    eol=lf
+
+# Windows 平台文件
+*.bat           text    eol=crlf
+*.csv           text    eol=crlf
+*.ps1           text    eol=crlf
+*.sln           text    eol=crlf
+*.vcproj        text    eol=crlf
+*.vcxproj       text    eol=crlf
+
+
+# Linux/ Mac Os 平台文件
+*.bash          text=auto   eol=lf
+
+*.rc            text=auto
+*.filters       text=auto
+
+
+# 保留行尾序列的文件
+*.patch        -text
