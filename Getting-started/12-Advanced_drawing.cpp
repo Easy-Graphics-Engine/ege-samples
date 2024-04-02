@@ -26,6 +26,8 @@
  *
  *      更多函数查阅文档: https://xege.org/manual/api/draw/index.htm
  */
+
+// 设置目标平台最低为 Windows Vista，以便能使用 SetProcessDPIAware() 函数
 #define WINVER       0X0600
 #define _WIN32_WINNT 0x0600
 
@@ -75,9 +77,6 @@ void advancedDraw(float x, float y, float width, float height, const char* text)
 
     float radius = (float)width * 3 / 4;
     const int n = 6;
-    // 左上角偏移 0.5 像素
-    x -= 0.5f;
-    y -= 0.5f;
 
     for (int i = 0; i < n; i++) {
         ege_point vertex[3];
@@ -88,17 +87,14 @@ void advancedDraw(float x, float y, float width, float height, const char* text)
         vertex[2].x = x + radius * cos((PI / 2.0) * (i+1) / n);
         vertex[2].y = y + radius * sin((PI / 2.0) * (i+1) / n);
 
-        //setfillcolor(linearInterp(colorbar[0], colorbar[1], (float)i / n));
-        setcolor(EGEACOLOR(0x0, colorbar[0]));
-        ege_drawpoly(3, vertex);
-        //ege_fillpoly(3, vertex);
+        setfillcolor(linearInterp(colorbar[0], colorbar[1], (float)i / n));
+        ege_fillpoly(3, vertex);
     }
 
     float cx = x + radius;
     float cy = y + radius;
     float cr = 48.0f;
 
-    //setfillcolor(EGEARGB(0, 208, 217, 231));
     setfillcolor(colorbar[0]);
     ege_fillellipse(cx - cr, cy - cr - cr, cr * 2, cr * 2);
 
