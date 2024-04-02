@@ -17,7 +17,7 @@ int main()
     setcaption("标题");
 
     // 初始化，窗口设置为 320x320 大小
-    initgraph(320, 320, 0);
+    initgraph(420, 320, 0);
     setbkcolor(WHITE);
 
     // 延时 2 秒
